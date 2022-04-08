@@ -8,7 +8,10 @@ on:
     
   # Allows you to run this workflow manually from the Actions tab 
   workflow_dispatch:
-    
+  
+# The environemnt variables are used from the "DEVELOPMENT" environment
+env:
+    DEVELOPMENT  
 
 jobs:
   deployment:
@@ -16,4 +19,5 @@ jobs:
     environment: QA
     steps:
       - name: deploy
+        # ...deployment-specific steps
         # ...deployment-specific steps
