@@ -44,7 +44,7 @@ jobs:
     name: Deploy to Production 
     needs: [DeployStaging]
     runs-on: ubuntu-latest
-    environment: 
+    environment:
       name: Production
       url: 'http://www.myapp.com'
     steps:
