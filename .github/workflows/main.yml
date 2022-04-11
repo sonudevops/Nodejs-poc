@@ -26,15 +26,27 @@ jobs:
       url: 'http://dev.myapp.com'
     steps:
       - name: Deploy
-        run: echo I am deploying! 
+        run: echo I am deploying!
     
-  DeployStaging:
-    name: Deploy to Staging 
+  DeployQA:
+    name: Deploy to QA
     if: github.event.ref == 'refs/heads/main'
     needs: [Build]
     runs-on: ubuntu-latest
     environment: 
-      name: Staging
+      name: QA
+      url: 'http://test.myapp.com'
+    steps:
+      - name: Deploy
+        run: echo I am deploying! 
+
+  DeployPrepod:
+    name: Deploy to Prepod 
+    if: github.event.ref == 'refs/heads/main'
+    needs: [Build]
+    runs-on: ubuntu-latest
+    environment: 
+      name: prepod
       url: 'http://test.myapp.com'
     steps:
       - name: Deploy
@@ -42,7 +54,7 @@ jobs:
           
   DeployProd:
     name: Deploy to Production 
-    needs: [DeployStaging]
+    needs: [DeployPrepod]
     runs-on: ubuntu-latest
     environment:
       name: Production
