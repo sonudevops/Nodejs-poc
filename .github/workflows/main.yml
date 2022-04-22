@@ -23,12 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: Development
-      APP_NAME: bb2app
-      AZURE_CONTAINER_REGISTRY: seagwamaksdevacr
-      RESOURCE_GROUP: seagwam-aks-dev-rg
-      CLUSTER_NAME: asia-dev-sea-aks
-      NAMESPACE: ns-gwam-aw-ifunds-dev
-      SECRET: acr-secret
+      
     steps:
       - name: Deploy
         run: echo I am deploying!
